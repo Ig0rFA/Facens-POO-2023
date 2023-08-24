@@ -20,8 +20,5 @@ public class ExemploJoptionPane {
                 "O que eu quero mostrar",
                 "Aqui vai o titulo",
                 JOptionPane.WARNING_MESSAGE);
-        
-        
-
     }
 }
