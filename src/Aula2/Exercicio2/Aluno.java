@@ -79,8 +79,9 @@ public class Aluno {
                 +"\nAG: "+this.getAg()
                 +"\nAF: "+this.getAf()
                 +"\n --------------------------"
-                +"\nMédia: %.2f"
+                +"\nMédia: "+this.calcularMedia()
                 +"\nSituação: "+this.verificarAprovacao();
-        return String.format(result, this.calcularMedia());
+        
+        return result;
     }
 }

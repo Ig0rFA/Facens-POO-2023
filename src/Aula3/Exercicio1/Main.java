@@ -1,16 +1,17 @@
-package Aula2.Exercicio1;
+package Aula3.Exercicio1;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
         String opt = "";
+        Apolice ap = null;
         
-        Pessoa p = null;
-        
-        String cpf, nome;
+        int numero, idade;
+        String nome;
         char sexo;
-        int idade;
+        double valorAuto;
         
         while(!opt.equals("3")) {
             opt = JOptionPane.showInputDialog("1- Cadastrar\n 2- Consultar\n 3- Sair");
@@ -20,30 +21,23 @@ public class Main {
         
             switch (opt) {
                 case "1":
-                    cpf = JOptionPane.showInputDialog("CPF:");
+                    numero = Integer.parseInt(JOptionPane.showInputDialog("NUmero:"));
                     nome = JOptionPane.showInputDialog("Nome:");
                     sexo = JOptionPane.showInputDialog("Sexo:").charAt(0);
                     idade = Integer.parseInt(JOptionPane.showInputDialog("Idade:"));
+                    valorAuto = Double.parseDouble(JOptionPane.showInputDialog("Valor Auto:"));
                     
-                    p = new Pessoa();
-                    p.setCpf(cpf);
-                    p.setNome(nome);
-                    p.setSexo(sexo);
-                    p.setIdade(idade);
-                    
+                    ap = new Apolice(numero, nome, idade, sexo, valorAuto);
                     break;
                 case "2":
-                    if (p != null) {
-                        JOptionPane.showMessageDialog(null, p.imprimir() );
+                    if (ap != null) {
+                        JOptionPane.showMessageDialog(null, ap.imprimir() );
                     } else {
                         JOptionPane.showMessageDialog(null, 
                                                 "Voce precisa cadastrar a Pessoa antes.", 
                                                 "Cuidado...", 
                                                 JOptionPane.ERROR_MESSAGE);
                     }
-                    break;
-                case "3":
-                    JOptionPane.showMessageDialog(null, "Volte sempre!");
                     break;
                 default:
                     JOptionPane.showMessageDialog(null, 
