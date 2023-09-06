@@ -1,7 +1,5 @@
 package Aula3.Exercicio2;
 
-import aula2.exercicio1.*;
-import aula1.*;
 import javax.swing.JOptionPane;
 
 

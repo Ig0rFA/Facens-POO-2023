@@ -5,6 +5,7 @@
 package Aula4;
 
 import Aula2.Aluno;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,14 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
     Aluno aluno = null;
+    ArrayList<Aluno>  lstAlunos = new ArrayList<>();
     
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
-        
-        
     }
 
     /**
@@ -58,6 +58,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabel3.setText("RA:");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("CADASTRO DE ALUNO");
 
@@ -145,20 +146,23 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        int idade = Integer.parseInt(txtNome.getText());
-        
         aluno = new Aluno();
         aluno.setNome(txtNome.getText());
         aluno.setCurso(txtCurso.getText());
         aluno.setRa(txtRA.getText());
         
+        lstAlunos.add(aluno);
         
-        
-        JOptionPane.showMessageDialog(rootPane, aluno.getNome()+ " foi cadastrado com sucesso");
+        //JOptionPane.showMessageDialog(rootPane, aluno.getNome()+ " foi cadastrado com sucesso");
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        JOptionPane.showMessageDialog(rootPane, aluno.imprimir());
+        String str = "";
+        for (int i = 0; i < lstAlunos.size(); i++) {
+            str += lstAlunos.get(i).imprimir();
+        }
+        
+        JOptionPane.showMessageDialog(rootPane, str);
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
