@@ -44,9 +44,10 @@ public class Aluno extends Pessoa{
         return (nota1+nota2)/2;
     }
     
+    @Override
     public String imprimir() {
-        String result = "Nome: "+getNome()+
-                "\nCpf: "+getCpf()
+        String result = "\n====== ALUNO ========"
+                +super.imprimir()
                 +"\n  RA:"+ra
                 +"\n  Nota1: "+nota1
                 +"\n  Nota2: "+nota2

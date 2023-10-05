@@ -6,9 +6,9 @@ import java.util.ArrayList;
 /*
     1- Cadastrar Tutor
     2- Pet (pergunta quem e o Tutor? (CPF)
-    3- Listar Tutores com pets
-
+    3- Listar Tutores (dados do Tutor e pets)
 */
+
 public class Tutor {
     private String nome;
     private String cpf;
