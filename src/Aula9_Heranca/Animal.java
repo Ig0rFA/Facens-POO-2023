@@ -1,4 +1,4 @@
-package Aula9;
+package Aula9_Heranca;
 
 public class Animal {
     private String nome;
