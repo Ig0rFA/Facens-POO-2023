@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-    private static String db = "aulapoo";
+    private static String db = "db_produto";
     private static String url = "jdbc:mysql://localhost:3307/"+db+"?zeroDateTimeBehavior=CONVERT_TO_NULL&useTimezone=true&serverTimezone=UTC";
     private static String usuario = "root";
     private static String senha = "usbw";
