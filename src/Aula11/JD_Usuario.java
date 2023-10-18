@@ -4,6 +4,12 @@
  */
 package Aula11;
 
+import Aula11.dao.UsuarioDAO;
+import Aula11.entity.Usuario;
+import Aula11.utils.TableModelCreator;
+import java.util.List;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author fabio
@@ -16,6 +22,20 @@ public class JD_Usuario extends javax.swing.JDialog {
     public JD_Usuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
+        atualizarTabela();
+    }
+
+    private void atualizarTabela() {
+        try {
+            List<Usuario> lstUsuarios = new UsuarioDAO().getAll(Usuario.class);
+
+            TableModel tableModelUsuarios = TableModelCreator.createTableModel(Usuario.class, lstUsuarios, null);
+            tbUsuarioOficial.setModel(tableModelUsuarios);
+        } catch (Exception e) {
+
+        }
+
     }
 
     /**
@@ -28,6 +48,8 @@ public class JD_Usuario extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        tbUsuarios = new javax.swing.JScrollPane();
+        tbUsuarioOficial = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -35,21 +57,41 @@ public class JD_Usuario extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USUARIO");
 
+        tbUsuarioOficial.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbUsuarios.setViewportView(tbUsuarioOficial);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(tbUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(tbUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,5 +141,7 @@ public class JD_Usuario extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable tbUsuarioOficial;
+    private javax.swing.JScrollPane tbUsuarios;
     // End of variables declaration//GEN-END:variables
 }
