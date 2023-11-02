@@ -1,6 +1,6 @@
 package Aula9_Heranca;
 
-public class Animal {
+public abstract class Animal {
     private String nome;
     private int idade;
 
@@ -25,7 +25,5 @@ public class Animal {
         this.nome = nome;
     }
     
-    public void falar() {
-        System.out.println("Falando normalmente.....");
-    }
+    public abstract void falar();
 }
